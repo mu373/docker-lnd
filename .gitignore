@@ -1,0 +1,8 @@
+docker-compose.yml
+
+!/lnd
+lnd/*
+lnd/lnd.conf
+!lnd/lnd.sample.conf
+!lnd/start-lnd.sh
+
