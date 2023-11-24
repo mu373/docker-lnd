@@ -49,21 +49,24 @@ CHAIN=$(set_default "$CHAIN" "bitcoin")
 BACKEND="btcd"
 HOSTNAME=$(hostname)
 
+# Start tor
+tor
+
 # CAUTION: DO NOT use the --noseedback for production/mainnet setups, ever!
 # Also, setting --rpclisten to $HOSTNAME will cause it to listen on an IP
 # address that is reachable on the internal network. If you do this outside of
 # docker, this might be a security concern!
 
 exec lnd \
-    --noseedbackup \
-    "--$CHAIN.active" \
-    "--$CHAIN.$NETWORK" \
-    "--$CHAIN.node"="$BACKEND" \
-    "--$BACKEND.rpccert"="$RPCCRTPATH" \
-    "--$BACKEND.rpchost"="$RPCHOST" \
-    "--$BACKEND.rpcuser"="$RPCUSER" \
-    "--$BACKEND.rpcpass"="$RPCPASS" \
-    "--rpclisten=$HOSTNAME:10009" \
-    "--rpclisten=localhost:10009" \
-    --debuglevel="$DEBUG" \
+#    --noseedbackup \
+#    "--$CHAIN.active" \
+#    "--$CHAIN.$NETWORK" \
+#    "--$CHAIN.node"="$BACKEND" \
+#    "--$BACKEND.rpccert"="$RPCCRTPATH" \
+#    "--$BACKEND.rpchost"="$RPCHOST" \
+#    "--$BACKEND.rpcuser"="$RPCUSER" \
+#    "--$BACKEND.rpcpass"="$RPCPASS" \
+#    "--rpclisten=$HOSTNAME:10009" \
+#    "--rpclisten=localhost:10009" \
+#    --debuglevel="$DEBUG" \
     "$@"
