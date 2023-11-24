@@ -2,10 +2,15 @@ version: '2'
 
 services:
   lnd:
-    image: lightninglabs/lnd:v0.17.2-beta
+    # image: lightninglabs/lnd:v0.17.2-beta
+    build:
+      context: ./
+      args:
+        - LND_VERSION=v0.17.2-beta
     container_name: lnd
     volumes:
       - ./lnd:/root/.lnd
+      - ./torrc.d/:/etc/torrc.d/
     networks:
       - bitcoin-nw
       - traefik-nw
@@ -23,7 +28,8 @@ services:
       traefik.http.routers.lnd.tls.certresolver: cloudflare
       traefik.http.services.lnd.loadbalancer.server.port: 8080
       traefik.http.services.lnd.loadbalancer.server.scheme: https
-    command: ["start-lnd.sh"]
+    working_dir: /root/.lnd/
+    entrypoint: ["./start-lnd.sh"]
 
 networks:
   bitcoin-nw:
