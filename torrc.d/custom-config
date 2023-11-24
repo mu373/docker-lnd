@@ -1,5 +1,9 @@
 RunAsDaemon 1
 
+# Enable cookie auth for hidden service
+CookieAuthentication 1
+
+
 # You can set custom torrc config here
 
 # For example excluding nodes from specific countries:
