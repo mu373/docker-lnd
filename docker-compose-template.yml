@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  lnd:
+    image: lightninglabs/lnd:v0.17.2-beta
+    container_name: lnd
+    volumes:
+      - ./lnd:/root/.lnd
+    networks:
+      - bitcoin-nw
+      - traefik-nw
+    ports:
+      - "9735:9735"
+      - "10009:10009"
+    expose:
+      - 8080
+    labels:
+      traefik.enable: true
+      traefik.docker.network: traefik-nw
+      traefik.http.routers.lnd.rule: Host(`lnd.example.com`)
+      traefik.http.routers.lnd.service: lnd
+      traefik.http.routers.lnd.entrypoints: websecure
+      traefik.http.routers.lnd.tls.certresolver: cloudflare
+      traefik.http.services.lnd.loadbalancer.server.port: 8080
+      traefik.http.services.lnd.loadbalancer.server.scheme: https
+    command: ["start-lnd.sh"]
+
+networks:
+  bitcoin-nw:
+    external: true
+  traefik-nw:
+    external: true
