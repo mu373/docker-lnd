@@ -6,3 +6,4 @@ lnd/lnd.conf
 !lnd/lnd.sample.conf
 !lnd/start-lnd.sh
 
+torrc.d/my-custom-config
