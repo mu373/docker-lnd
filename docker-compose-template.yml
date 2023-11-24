@@ -2,6 +2,7 @@ version: '2'
 
 services:
   lnd:
+    image: mu373/docker-lnd
     # We use a original image that has tor preinstalled. See Dockerfile for details
     build:
       context: ./
