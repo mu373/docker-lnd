@@ -19,6 +19,10 @@ Prepare configuration for `lnd`
 cp docker-compose-template.yml docker-compose.yml
 cp lnd/lnd.sample.conf lnd/lnd.conf
 vim lnd/lnd.conf # Edit the configuration to fit your needs
+
+# If you want to customize tor configs
+cp torrc.d/custom-config torrc.d/my-custom-config
+vim torrc.d/my-custom-config
 ```
 
 Start the container
