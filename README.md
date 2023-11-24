@@ -1,7 +1,8 @@
 # docker-lnd
 
-Run [LND](https://github.com/lightningnetwork/lnd) on Docker.  
-We use a custom LND image that has tor preinstalled alongside the base image from [lightninglabs/lnd](https://hub.docker.com/r/lightninglabs/lnd/tags). See the [Dockerfile](https://github.com/mu373/docker-lnd/blob/main/Dockerfile) for details.
+Run [LND](https://github.com/lightningnetwork/lnd) independently as a container on Docker.
+- We use a custom LND image that has tor preinstalled alongside the base image from [lightninglabs/lnd](https://hub.docker.com/r/lightninglabs/lnd/tags).
+- See [Dockerfile](https://github.com/mu373/docker-lnd/blob/main/Dockerfile) for details.
 
 ## Prerequisites
 - `bitcoind` running on a separate container
