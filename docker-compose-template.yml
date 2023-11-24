@@ -2,7 +2,7 @@ version: '2'
 
 services:
   lnd:
-    # image: lightninglabs/lnd:v0.17.2-beta
+    # We use a original image that has tor preinstalled. See Dockerfile for details
     build:
       context: ./
       args:
