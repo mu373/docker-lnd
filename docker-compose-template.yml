@@ -17,7 +17,7 @@ services:
     labels:
       traefik.enable: true
       traefik.docker.network: traefik-nw
-      traefik.http.routers.lnd.rule: Host(`lnd.example.com`)
+      traefik.http.routers.lnd.rule: Host(`yourlndnode.example.com`)
       traefik.http.routers.lnd.service: lnd
       traefik.http.routers.lnd.entrypoints: websecure
       traefik.http.routers.lnd.tls.certresolver: cloudflare
